@@ -6,12 +6,19 @@
 //
 
 import SwiftUI
+import FirebaseCore
 
 @main
 struct HayatArenaApp: App {
+    
+    init() {
+        FirebaseApp.configure()
+    }
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+//            ContentView()
+            AuthRouter()
         }
     }
 }

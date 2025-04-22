@@ -6,20 +6,41 @@
 //
 
 
+import SwiftUI
+
+
 struct MatchDetailView: View {
-    var match: String
-
+    var match: Match
+    
     var body: some View {
-        VStack(spacing: 20) {
-            Text(match)
-                .font(.title)
+        VStack {
+            Text(match.matchName)
+                .font(.largeTitle)
                 .bold()
+                .padding()
 
-            Button("Book a Seat & Pay") {
-                // Integrate payment here
-            }
-            .buttonStyle(.borderedProminent)
+            Image(match.imageName)
+                .resizable()
+                .scaledToFit()
+                .frame(height: 300)
+                .cornerRadius(12)
+                .padding()
+
+            Text("الملعب: \(match.stadium)")
+                .font(.title3)
+                .padding()
+            
+            NavigationLink("Book a Seat & Pay", destination: SeatSelectionView())
+
+            Spacer()
         }
+        .navigationTitle("تفاصيل المباراة")
         .padding()
     }
 }
+
+
+//
+//#Preview{
+//    MatchDetailView(match: "123")
+//}
