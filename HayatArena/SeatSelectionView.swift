@@ -11,8 +11,9 @@ import SwiftUI
 struct SeatSelectionView: View {
     @State private var selectedSeat: String? = nil
     @State private var ticketDetails: Ticket? = nil
+    @State private var isPaymentSuccessful: Bool = false
 
-    // Sample seat array - in practice, you can fetch this from a backend or database
+    // Sample seat array
     let seats = ["A1", "A2", "A3", "A4", "B1", "B2", "B3", "B4"]
 
     var body: some View {
@@ -28,6 +29,7 @@ struct SeatSelectionView: View {
                     Button(action: {
                         selectedSeat = seat
                         ticketDetails = Ticket(seat: seat, price: 100)  // Dummy price
+                        isPaymentSuccessful = false  // Reset payment status
                     }) {
                         Text(seat)
                             .padding()
@@ -40,7 +42,7 @@ struct SeatSelectionView: View {
             }
             .padding()
 
-            // If a seat is selected, show ticket details and the option to pay
+            // If a seat is selected, show ticket details and the option to simulate payment
             if let selectedSeat = selectedSeat, let ticket = ticketDetails {
                 Text("Selected Seat: \(selectedSeat)")
                     .padding()
@@ -48,16 +50,33 @@ struct SeatSelectionView: View {
                 Text("Price: $\(ticket.price)")
                     .padding()
 
-                Button("Proceed to Payment") {
-                    // Navigate to payment or payment logic
+                Button("Simulate Payment") {
+                    simulatePayment(ticket: ticket)
                 }
                 .buttonStyle(.borderedProminent)
                 .padding()
 
-                // Generate QR Code for ticket
-                QRCodeView(ticket: ticket)
-                    .padding()
+                if isPaymentSuccessful {
+                    Text("Payment Successful!")
+                        .foregroundColor(.green)
+                        .padding()
+                    QRCodeView(ticket: ticket)
+                        .padding()
+                } else {
+                    Text("Payment Failed!")
+                        .foregroundColor(.red)
+                        .padding()
+                }
             }
+        }
+        .padding()
+    }
+
+    func simulatePayment(ticket: Ticket) {
+        // Simulate payment processing (this can be a random result)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            let success = Bool.random()  // Random success or failure
+            isPaymentSuccessful = success
         }
     }
 }
@@ -66,3 +85,5 @@ struct Ticket {
     var seat: String
     var price: Int
 }
+
+

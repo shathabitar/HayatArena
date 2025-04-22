@@ -6,6 +6,8 @@
 //
 
 
+import SwiftUI
+
 struct MatchDetailView: View {
     var match: String
 
@@ -15,11 +17,14 @@ struct MatchDetailView: View {
                 .font(.title)
                 .bold()
 
-            Button("Book a Seat & Pay") {
-                // Integrate payment here
-            }
-            .buttonStyle(.borderedProminent)
+            NavigationLink("Book a Seat & Pay", destination: SeatSelectionView())
+
         }
         .padding()
+        .navigationTitle("Match Details")
     }
+}
+
+#Preview{
+    MatchDetailView(match: "123")
 }

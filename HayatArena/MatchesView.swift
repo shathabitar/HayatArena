@@ -28,20 +28,8 @@ struct MatchesView: View {
     }
 }
 
-struct MatchDetailView: View {
-    var match: String
 
-    var body: some View {
-        VStack(spacing: 20) {
-            Text(match)
-                .font(.title)
-                .bold()
 
-            Button("Book a Seat & Pay") {
-                // Integrate payment here
-            }
-            .buttonStyle(.borderedProminent)
-        }
-        .padding()
-    }
+#Preview{
+    MatchesView()
 }
