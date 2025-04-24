@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+<<<<<<< HEAD
 // Player model
 struct Player {
     let name: String
@@ -16,6 +17,8 @@ struct Player {
 }
 
 // Players view with soccer field
+=======
+>>>>>>> ae4816f33eb111e2f9714b0351040d4cf486eda9
 struct PlayersView: View {
     // List of Saudi Arabia team players
     let players = [
@@ -108,6 +111,9 @@ struct PlayerDetailView: View {
     }
 }
 
+<<<<<<< HEAD
 #Preview {
     PlayersView()
 }
+=======
+>>>>>>> ae4816f33eb111e2f9714b0351040d4cf486eda9

@@ -16,6 +16,7 @@ struct UserLocation: Identifiable {
 
 struct MapView: View {
     @State private var people = [
+<<<<<<< HEAD
         UserLocation(name: "فهد العتيبي", coordinate: CLLocationCoordinate2D(latitude: 24.774265, longitude: 46.738586)),  // Center
         UserLocation(name: "سلمان الفهيد", coordinate: CLLocationCoordinate2D(latitude: 24.774365, longitude: 46.738686)),  // NE
         UserLocation(name: "نواف الجبرين", coordinate: CLLocationCoordinate2D(latitude: 24.774165, longitude: 46.738486)),  // SW
@@ -29,6 +30,17 @@ struct MapView: View {
     @State private var region = MKCoordinateRegion(
         center: CLLocationCoordinate2D(latitude: 24.774265, longitude: 46.738386), // Initial center
         span: MKCoordinateSpan(latitudeDelta: 0.002, longitudeDelta: 0.002)
+=======
+        UserLocation(name: "Player 1", coordinate: CLLocationCoordinate2D(latitude: 37.7749, longitude: -122.4194)),
+        UserLocation(name: "Player 2", coordinate: CLLocationCoordinate2D(latitude: 34.0522, longitude: -118.2437)),
+        UserLocation(name: "Player 3", coordinate: CLLocationCoordinate2D(latitude: 40.7128, longitude: -74.0060))
+    ]
+    
+    // Make sure region span is smaller for zooming
+    @State private var region = MKCoordinateRegion(
+        center: CLLocationCoordinate2D(latitude: 37.7749, longitude: -122.4194), // Initial center
+        span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05) // Zoom level control
+>>>>>>> ae4816f33eb111e2f9714b0351040d4cf486eda9
     )
 
     var body: some View {

@@ -49,6 +49,7 @@ struct MatchesView: View {
     }
 }
 
+<<<<<<< HEAD
 struct Match {
     var matchName: String
     var stadium: String
@@ -56,5 +57,10 @@ struct Match {
 }
 
 #Preview {
+=======
+
+
+#Preview{
+>>>>>>> ae4816f33eb111e2f9714b0351040d4cf486eda9
     MatchesView()
 }
