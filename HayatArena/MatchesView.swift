@@ -22,7 +22,7 @@ struct MatchesView: View {
     var body: some View {
         NavigationStack {
             List(upcomingMatches, id: \.matchName) { match in
-                // Pass the entire Match object to the MatchDetailView
+   
                 NavigationLink(destination: MatchDetailView(match: match)) {
                     HStack {
                         Image(match.imageName)

@@ -16,17 +16,19 @@ struct UserLocation: Identifiable {
 
 struct MapView: View {
     @State private var people = [
-        UserLocation(name: "فهد العتيبي", coordinate: CLLocationCoordinate2D(latitude: 24.7743, longitude: 46.7386)),  // Fahd Al-Otaibi
-            UserLocation(name: "سلمان الفهيد", coordinate: CLLocationCoordinate2D(latitude: 24.7743, longitude: 46.7386)),  // Salman Al-Fahied
-            UserLocation(name: "نواف الجبرين", coordinate: CLLocationCoordinate2D(latitude: 24.7743, longitude: 46.7386)),  // Nawaf Al-Jubrin
-            UserLocation(name: "عبدالله السحيمي", coordinate: CLLocationCoordinate2D(latitude: 24.7743, longitude: 46.7386)),  // Abdullah Al-Suhaimi
-            UserLocation(name: "محمد القحطاني", coordinate: CLLocationCoordinate2D(latitude: 24.7743, longitude: 46.7386))   // Mohammed Al-Qahtani
-        ]
+        UserLocation(name: "فهد العتيبي", coordinate: CLLocationCoordinate2D(latitude: 24.774265, longitude: 46.738586)),  // Center
+        UserLocation(name: "سلمان الفهيد", coordinate: CLLocationCoordinate2D(latitude: 24.774365, longitude: 46.738686)),  // NE
+        UserLocation(name: "نواف الجبرين", coordinate: CLLocationCoordinate2D(latitude: 24.774165, longitude: 46.738486)),  // SW
+        UserLocation(name: "عبدالله السحيمي", coordinate: CLLocationCoordinate2D(latitude: 24.774265, longitude: 46.738786)),  // E
+        UserLocation(name: "محمد القحطاني", coordinate: CLLocationCoordinate2D(latitude: 24.774265, longitude: 46.738386))   // W
+    ]
+
+
     
     // Make sure region span is smaller for zooming
     @State private var region = MKCoordinateRegion(
-        center: CLLocationCoordinate2D(latitude: 37.7749, longitude: -122.4194), // Initial center
-        span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05) // Zoom level control
+        center: CLLocationCoordinate2D(latitude: 24.774265, longitude: 46.738386), // Initial center
+        span: MKCoordinateSpan(latitudeDelta: 0.002, longitudeDelta: 0.002)
     )
 
     var body: some View {

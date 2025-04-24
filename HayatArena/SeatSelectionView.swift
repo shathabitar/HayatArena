@@ -44,7 +44,7 @@ struct SeatSelectionView: View {
             if let selectedSeat = selectedSeat, let ticket = ticketDetails {
                 VStack(spacing: 8) {
                     Text("Selected Seat: \(selectedSeat)")
-                    Text("Price: $\(ticket.price)")
+                    Text("Price: \(ticket.price) ")
 
                     Button("Pay") {
                         simulatePayment(ticket: ticket)

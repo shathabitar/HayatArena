@@ -10,6 +10,10 @@ import SwiftUI
 import ARKit
 import SceneKit
 
+import SwiftUI
+import ARKit
+import SceneKit
+
 struct ARNavigationView: View {
     @State private var sceneView: ARSCNView?
     @State private var directionArrow: SCNNode?
@@ -23,7 +27,7 @@ struct ARNavigationView: View {
                 .bold()
                 .padding()
             
-            ARViewContainer(seatPosition: seatPosition)
+            ARViewContainer(seatPosition: seatPosition, sceneView: $sceneView)
                 .edgesIgnoringSafeArea(.all)
             
             Button(action: {
@@ -63,9 +67,12 @@ struct ARNavigationView: View {
 
 struct ARViewContainer: UIViewRepresentable {
     var seatPosition: SCNVector3
+    @Binding var sceneView: ARSCNView?
     
     func makeUIView(context: Context) -> ARSCNView {
         let sceneView = ARSCNView(frame: .zero)
+        self.sceneView = sceneView  // Bind the sceneView
+        
         sceneView.autoenablesDefaultLighting = true
         sceneView.delegate = context.coordinator
         sceneView.scene = SCNScene()

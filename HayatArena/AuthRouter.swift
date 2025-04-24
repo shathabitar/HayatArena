@@ -8,20 +8,21 @@
 
 import SwiftUI
 import FirebaseAuth
-
 struct AuthRouter: View {
     @State private var isAuthenticated = false
 
     var body: some View {
-        VStack {
-            if isAuthenticated {
-                MainTabView()  // Show tab view once authenticated
-            } else {
-                SignInPage(isAuthenticated: $isAuthenticated)  // Show sign in page or login page
+        NavigationStack {  // Add NavigationStack here
+            VStack {
+                if isAuthenticated {
+                    MainTabView()  // Show tab view once authenticated
+                } else {
+                    SignInPage(isAuthenticated: $isAuthenticated)  // Show sign in page or login page
+                }
             }
-        }
-        .onAppear {
-            checkAuthentication()
+            .onAppear {
+                checkAuthentication()
+            }
         }
     }
 
